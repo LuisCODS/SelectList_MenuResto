@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Revision</title>
+    <script type="text/javascript" src="~/Js/DocScript.js"></script>
+</head>
+<body onload="initializeListe();">
+
+    <br /><br /><br />
+    <form name="formName" id="formName">
+        Entrée:
+        <select id="list" name="list"
+                onchange="GetSelectedItem('image', this.form)">
+        </select>
+
+        <IMG NAME="image" id="image" SRC="~/Img/default.jpg"
+             alt="logo image" HEIGHT=128 WIDTH=128 BORDER=0 />
+    </form>
+
+    <span id="optionValue"></span><br />
+    <span id="tableauValue"></span><br />
+    <span id=""></span><br />
+
+
+</body>
+</html>
+
+@*<option value="0">teste</option>
+    <option value="1">Pain</option>
+    <option value="2">soupe</option>
+    <option value="3">Salade cesar</option>*@
+
+@*<span id="Prix"></span>
+    <span id="Sous-total"></span>
+    <span id="Taxes"></span>
+    <span id="Total"></span>*@
