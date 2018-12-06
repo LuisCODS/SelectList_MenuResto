@@ -1,7 +1,12 @@
 ﻿
 // ======================== GLOBAL ============================
 
-//Les objets...
+var Default = {
+    id: 0,
+    src: '/Img/imgDefault.jpg',
+    prix: 0.00,
+    nome: 'Choisir...'
+};
 
 var MixSalade = {
     id:1,
@@ -27,35 +32,38 @@ var Cesar = {
     nome: 'Salade Cesar'
 };
 
-var tableauSalade = [MixSalade, Soupe, Cesar];//Array
+var tableauSalade = [Default, MixSalade, Soupe, Cesar];//Array
 
 
 // ======================== FUNCTIONS ============================
+
 //Initialise(dinamiquement) une list deroulande aves des données provenant d'un array
-function initializeListe()
-{
-    var listSalade = document.getElementById('listOfSalade'); 
+function initializeListe(){
+    var tblSalade = document.getElementById('listOfSalade'); 
     var i;
     for (i in tableauSalade) {
         for (i = 0; i < tableauSalade.length; i++) {
-            listSalade.options[i] = new Option(tableauSalade[i].nome);  
+            tblSalade.options[i] = new Option(tableauSalade[i].nome);  
         } 
     } 
 }
 
 //Change l'image à chaque selection sur la list
 function changeImage(formName) {
-
-    var imageSalade = document.getElementById('imageSalade');//L'image
-
+    var imageSalade = document.getElementById('imageSalade');
     var i;
     for (i = 0; i < tableauSalade.length; i++) {
 
         if (formName.listOfSalade.options[i].selected) {
-            imageSalade.src = tableauSalade[i].src;
-            tpsTvq(tableauSalade[i].prix);
-            //document.getElementById('PrixSalade').innerHTML = tableauSalade[i].prix + "$";
-            //document.getElementById('Prix').innerHTML = tableauSalade[i].fullPrice();
+            //Si l'indice 0 est selectionné: on renitialise
+            if (tableauSalade[i].id === 0) {
+                imageSalade.src = tableauSalade[i].src;
+                tpsTvq(tableauSalade[i].prix);
+            } else {
+                //...on change les images et les prix
+                imageSalade.src = tableauSalade[i].src;
+                tpsTvq(tableauSalade[i].prix);
+            }
         }
     }       
 }
@@ -65,12 +73,27 @@ function tpsTvq(nb1, nb2=0) {
     var taux = 1.13;
     var sousTotal = nb1 + nb2;
     var total = sousTotal * taux;
-    var taxes = total - sousTotal;
+    var taxes = total-sousTotal;
 
-    document.getElementById('sousTotal').innerHTML = "Sous-Total:   " +sousTotal + " $";
+    document.getElementById('sousTotal').innerHTML = "Sous-Total:   " + sousTotal + " $";
     document.getElementById('taxes').innerHTML = "Taxes:    " + taxes + " $";
     document.getElementById('total').innerHTML = "Total:    " +total + " $";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //ToTest:
     //document.getElementById('optionValue').innerHTML = "listItem.options[0].value :" + listItem.options[0].value;
