@@ -40,9 +40,7 @@ function initializeListe(){
     var tblSalade = document.getElementById('listOfSalade'); 
     var i;
     for (i in tableauSalade) {
-        for (i = 0; i < tailleTbl; i++) {
-            tblSalade.options[i] = new Option(tableauSalade[i].nome);  
-        } 
+            tblSalade.options[i] = new Option(tableauSalade[i].nome);          
     } 
 }
 
