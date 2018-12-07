@@ -47,8 +47,8 @@ function initializeListe(){
 //Change l'image à chaque selection sous la list
 function changeImage(formName) {
     
-    var imageSalade = document.getElementById('imageSalade');
-    var i;
+    var i,imageSalade = document.getElementById('imageSalade');
+    
     for (i = 0; i < tailleTbl; i++) {
 
         if (formName.listOfSalade.options[i].selected) {
