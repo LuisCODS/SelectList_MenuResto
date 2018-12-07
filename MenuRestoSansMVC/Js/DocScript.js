@@ -37,8 +37,7 @@ var tailleTbl = tableauSalade.length;
 
 //Initialise(dinamiquement) une list deroulande aves des données provenant d'un array
 function initializeListe(){
-    var tblSalade = document.getElementById('listOfSalade'); 
-    var i;
+    var i, tblSalade = document.getElementById('listOfSalade'); 
     for (i in tableauSalade) {
             tblSalade.options[i] = new Option(tableauSalade[i].nome);          
     } 
